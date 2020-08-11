@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en-us" role="application">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="black" />
+
+    <title>MSC - VESSEL POSITION</title>
+
+    @{ HtmlHelper.UnobtrusiveJavaScriptEnabled = true; }
+
+
+    <link rel="preload" as="style" href="~/Content/Site.css" onload="this.rel='stylesheet'">
+    <link rel="manifest" href="~/manifest.json">
+    <link rel="icon" sizes="192x192" href="/logo.png" />
+    <link rel="icon" type="image/png" href="~/Content/images/logo.png" />
+</head>
+<body id="main" role="main">
+    <noscript>
+        <a class="navbar-brand" href="#">
+            <img src="~/banner.png" alt="MSC - VESSEL POSITION" class="rounded" role="img" />
+        </a>
+    </noscript>
+
+    @Scripts.Render("~/bundles/Scripts")
+
+
+
+    <div class="container-fluid body-content animate-bottom">
+        @Html.Partial("_Header")
+
+        @RenderBody()
+    </div>
+
+    <script src="~/Scripts/jquery.min.js"></script>
+
+
+    <script type="text/javascript"> 
+        showPage();
+
+        function showPage() {
+
+            document.body.style.backgroundImage = "none";
+
+            showGrid();
+
+            if ($('#webGrid tr.today:first').offset() != undefined)
+                $('html,body').animate({ scrollTop: $('tr.today:first').offset().top }, 'slow');
+
+            $('#headers thead').append($('#webGrid thead').html());
+            $('#webGrid thead').hide();
+
+        }
+
+        function showGrid() {
+            $('#webGrid tbody tr').each(function () {
+                debugger;
+
+                var _date = new Date($(this).children("td:eq(4)").text());
+                var year = _date.getFullYear();
+                var month = _date.getMonth() + 1;
+                var day = _date.getDate();
+
+                if (year == @DateTime.Now.Year && month == @DateTime.Now.Month && day == @DateTime.Now.Day)   
+                    $(this).addClass('today');
+
+
+            $(this).children("td:eq(0)").addClass(' text-left');
+            $(this).children("td:eq(1)").addClass(' text-left');
+            $(this).children("td:eq(2)").addClass(' text-left');
+            $(this).children("td:eq(3)").addClass('');
+            $(this).children("td:eq(4)").addClass('');
+            $(this).children("td:eq(5)").addClass('');
+
+        });
+
+        $('#webGrid thead tr').each(function () {
+            $(this).children("th:eq(0)").addClass('');
+            $(this).children("th:eq(1)").addClass('');
+            $(this).children("th:eq(2)").addClass('');
+            $(this).children("th:eq(3)").addClass('');
+            $(this).children("th:eq(4)").addClass('');
+            $(this).children("th:eq(5)").addClass('');
+        });
+        }
+    </script> 
+    @*<script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>*@
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,72 @@
+﻿<div id="mySidenav" class="sidenav" role="navigation">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <ul class="list-group">
+        <li class="list-group-item disabled">
+            <label>PORTS</label>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group-vertical" data-toggle="buttons" id="prots">
+                <label class="btn btn-dark @((HttpContext.Current.Session["port"] ??"").ToString() == "-1" ? "active" : "")">
+                    <input type="radio" name="Port" id="port0" aria-labelledby="prots" autocomplete="off" value="-1" checked=@((HttpContext.Current.Session["port"] ??"").ToString() == "-1") onchange="form.submit()" />All Ports
+                </label>
+
+                <label class="btn btn-dark @((HttpContext.Current.Session["port"] ??"").ToString() == "1" ? "active" : "")">
+                    <input type="radio" name="Port" id="port1" aria-labelledby="prots" autocomplete="off" value="1" checked=@((HttpContext.Current.Session["port"] ??"").ToString() == "1") onchange="form.submit()" />Alexandria
+                </label>
+
+                <label class="btn btn-dark @((HttpContext.Current.Session["port"] ??"").ToString() == "2" ? "active" : "")">
+                    <input type="radio" name="Port" id="port2" aria-labelledby="prots" autocomplete="off" value="2" checked=@((HttpContext.Current.Session["port"] ??"").ToString() == "2") onchange="form.submit()" />Sokhna
+                </label>
+
+                <label class="btn btn-dark @((HttpContext.Current.Session["port"] ??"").ToString() == "3" ? "active" : "")">
+                    <input type="radio" name="Port" id="port3" aria-labelledby="prots" autocomplete="off" value="3" checked=@((HttpContext.Current.Session["port"] ??"").ToString() == "3") onchange="form.submit()" />Prot Said East
+                </label>
+
+                <label class="btn btn-dark @((HttpContext.Current.Session["port"] ??"").ToString() == "4" ? "active" : "")">
+                    <input type="radio" name="Port" id="port4" aria-labelledby="prots" autocomplete="off" value="4" checked=@((HttpContext.Current.Session["port"] ?? "").ToString() == "4") onchange="form.submit()" />Damietta
+                </label>
+
+                <label class="btn btn-dark @((HttpContext.Current.Session["port"] ??"").ToString() == "5" ? "active" : "")">
+                    <input type="radio" name="Port" id="port5" aria-labelledby="prots" autocomplete="off" value="5" checked=@((HttpContext.Current.Session["port"] ?? "").ToString() == "5") onchange="form.submit()" />Prot Said West
+                </label>
+            </div>
+        </li>
+    </ul>
+    <br />
+    <ul class="list-group">
+        <li class="list-group-item disabled">
+            <label>PERIOD</label>
+        </li>
+        <li class="list-group-item">
+            <div class="btn-group-vertical" data-toggle="buttons" id="periods">
+                <label class="btn btn-warning @((HttpContext.Current.Session["period"] ??"").ToString() == "7" ? "active" : "")">
+                    <input type="radio" name="Period" id="option1" aria-labelledby="periods" autocomplete="off" value="7" checked=@((HttpContext.Current.Session["period"] ??"").ToString() == "7") onchange="form.submit()" />1 Weerk
+                </label>
+                <label class="btn btn-warning @((HttpContext.Current.Session["period"] ??"").ToString() == "14" ? "active" : "")">
+                    <input type="radio" name="Period" id="option2" aria-labelledby="periods" autocomplete="off" value="14" checked=@((HttpContext.Current.Session["period"] ??"").ToString() == "14") onchange="form.submit()" /> 2 Weeks
+                </label>
+                <label class="btn btn-warning @((HttpContext.Current.Session["period"] ??"").ToString() == "21" ? "active" : "")">
+                    <input type="radio" name="Period" id="option3" aria-labelledby="periods" autocomplete="off" value="21" checked=@((HttpContext.Current.Session["period"] ??"").ToString() == "21") onchange="form.submit()" /> 3 Weeks
+                </label>
+                <label class="btn btn-warning @((HttpContext.Current.Session["period"] ??"").ToString() == "30" ? "active" : "")">
+                    <input type="radio" name="Period" id="option4" aria-labelledby="periods" autocomplete="off" value="30" checked=@((HttpContext.Current.Session["period"] ?? "").ToString() == "30") onchange="form.submit()" />4 Weeks
+                </label>
+            </div>
+        </li>
+    </ul>
+
+
+</div>
+
+<script>
+    /* Set the width of the side navigation to 250px */
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "300px";
+    }
+
+    /* Set the width of the side navigation to 0 */
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>

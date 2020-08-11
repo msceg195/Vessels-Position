@@ -1,0 +1,55 @@
+﻿<div style="position:fixed;left:0;right:0;">
+    <table id="headers" class="table table-hover">
+        <thead></thead>
+    </table>
+</div>
+
+<div style="margin : 80px auto 0px;">
+    <div id="ajaxgrid">
+        @Html.Partial("_Grid")
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    var index = 0, start = 1, end = $("#webGrid tbody > tr").length;
+
+    setInterval(function () {
+        reload();
+
+        index++;
+
+        scroll($('#webGrid tr:nth-child(' + index + ')').offset().top);
+        
+        if (index == end) index = 0
+    }, 60000);
+
+    });
+    function scroll(point) {
+
+        if ($('#webGrid tr.today:first').offset() != undefined)
+            $('html,body').animate({ scrollTop: point }, 'slow');
+
+    }
+
+    function reload() {
+        $.ajax({
+            url: '@Url.Action("Reload", "Home")',
+            type: "POST",
+            dataType: "html",
+            contentType: "application/html; charset=utf-8",
+            data: null,
+            success: function (result) { 
+                $("#ajaxgrid").parent().html(result);
+            },
+            error: function (result) {
+                //console.log('error!');
+            }
+        }).then(function () {
+            $('#webGrid thead').hide();
+            showGrid();
+        });
+    }
+
+</script>

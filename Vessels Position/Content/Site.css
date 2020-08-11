@@ -1,0 +1,214 @@
+﻿@import url('bootstrap.min.css');
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #000000;
+    background-image: url('images/map.png');
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+header {
+    background-color: #FECB00;
+    padding: 25px 10px;
+    margin: 0px auto;
+}
+
+table thead tr:first-child {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+th {
+    text-align: center;
+}
+
+tr {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+    tr:hover {
+        color: #FECB00;
+        font-size: 24px;
+    }
+
+.fixed {
+    position: fixed;
+    bottom: 0;
+    /*background: #fff;*/
+    color: #fecb00;
+    /*margin: 15px;*/
+    left: 0;
+    right: 0;
+}
+
+.today {
+    color: #FECB00 !important;
+}
+
+/*  Loading */
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #fecb00;
+    border-bottom: 10px solid #fecb00;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+#myDiv {
+    display: none;
+    text-align: center;
+}
+
+.container-fluid {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+
+/* menu */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    border-left: 3px solid #fff;
+}
+
+    .sidenav a {
+        padding: 0px 5px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #FECB00;
+        display: block;
+        transition: 0.3s;
+        text-align: right;
+    }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+    .sidenav .closebtn {
+        /*position: absolute;
+        top: 0;
+        right: 25px;*/
+        font-size: 36px;
+        /*margin-right: 50px;*/
+    }
+
+#main {
+    transition: margin-left .5s;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+
+
+.list-group-item:first-child {
+    border-radius: 0px !important;
+}
+
+.btn-group-vertical > .btn:first-child:not(:last-child) {
+    border-radius: 0px !important;
+}
+
+.list-group-item:last-child {
+    border-radius: 0px !important;
+}
+
+.btn-group-vertical > .btn:last-child:not(:first-child) {
+    border-radius: 0px !important;
+}
+
+.list-group {
+    margin: auto 5px;
+}
+
+.list-group-item {
+    padding: 10px;
+}
+
+.btn-group-vertical {
+    width: 100%;
+}

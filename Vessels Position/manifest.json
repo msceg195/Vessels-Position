@@ -1,0 +1,44 @@
+﻿{
+  "lang": "en",
+  "dir": "ltr",
+  "short_name": "MSCEGYPT",
+  "name": "MSC EGYPT",
+  "description": "MSC EGYPT Vessels Positions",
+  "theme_color": "black",
+  "background_color": "black",
+  "serviceworker": {
+    "src": "sw.js",
+    "scope": "/Home/Index/",
+    "use_cache": true
+  },
+
+  "icons": [
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "display": "fullscreen",
+  "start_url": "/Home/Index/"
+}

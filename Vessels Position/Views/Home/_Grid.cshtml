@@ -1,0 +1,19 @@
+﻿ 
+        @{
+            WebGrid webGrid = new WebGrid(Model, 
+                canPage: false, 
+                ajaxUpdateCallback: "myVessels", 
+                ajaxUpdateContainerId: "webGrid");
+        }
+
+        @webGrid.GetHtml(tableStyle: "table table-hover",
+            columns:
+            webGrid.Columns(
+            webGrid.Column("VESSEL", " VESSEL", canSort: true, style: ""),
+            webGrid.Column("VOY_NO", "VOY#", canSort: true, style: ""),
+            webGrid.Column("PORT", "PORT", canSort: true, style: ""),
+            webGrid.Column("ROAD", "ROAD", canSort: true, style: ""),
+            webGrid.Column("ARRIVAL_AT_ANCHORAGE", "ARRIVAL", canSort: true, style: ""),
+            webGrid.Column("SAILED", "SAILED", canSort: true, style: "")
+            ), htmlAttributes: new { id = "webGrid" })
+    
